@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.juhyang.nfcsound">
 
+    <!-- NFC Permission-->
+    <uses-permission android:name="android.permission.NFC" />
+
+    <!-- Vibrate Permission   -->
+    <uses-permission android:name= "android.permission.VIBRATE" />
+
+
+    <!--    NFC 하드웨어가 있는 기기에서만 애플리케이션이 Google Play에 표시되도록 하는 uses-feature 요소 -->
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <receiver android:name=".nfc.NfcBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </receiver>
+    </application>
 </manifest>
