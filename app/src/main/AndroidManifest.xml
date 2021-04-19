@@ -30,7 +30,7 @@
 
         <receiver android:name=".nfc.NfcBroadcastReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
             </intent-filter>
             <!--<intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />

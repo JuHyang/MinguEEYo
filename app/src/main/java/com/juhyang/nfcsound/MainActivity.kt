@@ -14,11 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val filter = IntentFilter()
-        filter.addAction("SOME_ACTION")
-        filter.addAction("SOME_OTHER_ACTION")
-
-        registerReceiver(nfcBroadcastReceiver, filter)
+        registerReceiver(nfcBroadcastReceiver, null)
     }
 
     override fun onDestroy() {
